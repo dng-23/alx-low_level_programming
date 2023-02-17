@@ -19,7 +19,7 @@ int main(void)
 			if (num == 57)
 			{
 				num2 = 48;
-				num4 = 49;
+				num4 = num3 + 1;
 			}
 			else
 				num2 = num + 1;
