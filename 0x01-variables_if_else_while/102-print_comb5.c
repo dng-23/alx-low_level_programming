@@ -16,7 +16,13 @@ int main(void)
 		num4 = num3;
 		while (num <= 57)
 		{
-			num2 = num + 1;
+			if (num == 57)
+			{
+				num2 = 0;
+				num4 = 1;
+			}
+			else
+				num2 = num + 1;
 			while (num2 <= 57 && num4 <= 57)
 			{
 				while (num2 <= 57)
