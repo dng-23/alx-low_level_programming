@@ -18,8 +18,8 @@ int main(void)
 		{
 			if (num == 57)
 			{
-				num2 = 0;
-				num4 = 1;
+				num2 = 48;
+				num4 = 49;
 			}
 			else
 				num2 = num + 1;
