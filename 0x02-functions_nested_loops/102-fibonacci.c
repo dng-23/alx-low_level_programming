@@ -20,5 +20,6 @@ int main(void)
 		j += sum;
 		n++;
 	}
+	printf("\n");
 	return (0);
 }
