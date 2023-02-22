@@ -8,11 +8,11 @@
 int main(void)
 {
 	int n = 0;
-	unsigned long int i = 1, j = 2, sum;
+	unsigned long i = 1, j = 2, sum;
 
 	while (n < 98)
 	{
-		printf("%ld", i);
+		printf("%lu", i);
 		if (n != 97)
 			printf(", ");
 		sum = i;
