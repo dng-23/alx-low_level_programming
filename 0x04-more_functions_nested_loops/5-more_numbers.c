@@ -7,11 +7,11 @@
  */
 void more_numbers(void)
 {
-	int n = 0, i;
+	int n, i;
 
 	for (i = 0; i < 10; i++)
 	{
-		for (n; n <= 14; n++)
+		for (n = 0; n <= 14; n++)
 		{
 			_putchar (n / 10 + '0');
 			if (n > 9)
