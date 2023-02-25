@@ -8,13 +8,13 @@
  */
 void print_number(int n)
 {
-	int p = n, count = 0, m_10 = 1, sign = 0;
+	int p = n, count = 0, m_10 = 1;
 
 	if (n < 0)
 	{
-		sign = 1;
 		p *= -1;
 		n *= -1;
+		_putchar('-');
 	}
 	while (p > 0)
 	{
@@ -22,8 +22,6 @@ void print_number(int n)
 		count++;
 	}
 	count--;
-	if (sign == 1)
-		_putchar('-');
 	while (count > 0)
 	{
 		m_10 *= 10;
@@ -46,5 +44,5 @@ void print_number(int n)
 		_putchar(n % 10 + '0');
 	}
 	else
-		 _putchar(p % 10 + '0');
+		 _putchar(n % 10 + '0');
 }
