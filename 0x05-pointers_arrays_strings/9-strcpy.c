@@ -6,7 +6,7 @@
  * @src: string copied from
  * Return: pointer to dest
  */
-char *_strcpy(char *dest, char *src);
+char *_strcpy(char *dest, char *src)
 {
 	while (*src != '\0')
 	{
