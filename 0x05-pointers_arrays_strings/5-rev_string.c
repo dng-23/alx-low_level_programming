@@ -28,6 +28,8 @@ void rev_string(char *s)
 		t = *s;
 		*s = *temp;
 		*temp = t;
+		temp--;
+		s++;
 		len++;
 		i--;
 	}
