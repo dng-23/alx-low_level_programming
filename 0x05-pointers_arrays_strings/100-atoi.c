@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <math.h>
 /**
  * _atoi -  copies the string pointed to by src to dest
  * @s: pointer to string
@@ -7,36 +8,39 @@
  */
 int _atoi(char *s)
 {
-	char *temp = s;
-	int i = 0, digit = 0;
-	while ((*temp < '0' || *temp > '9') || *temp != '\0')
-	{
-		i++;
-		temp++;
-	}
-	temp = s;
-	while (*temp != '\0')
-	{
-		if (*temp >= '0' && *temp <= '9')
-		{
-		}
-	}
-		printf("hhh %s\n",s);
-		/*if (i > 0)
-		{
-			i--;
-			digit = (s[i] + '0') - 48;
-			digit = num * digit;
-			while (i)
-			{
-				i--;
-				num *= 10;
-				digit = (s[i] + '0') - 48;
-				digit += (num * digit);
-			}
+	int i = 0, digit = 0, count = 0, p, num = 1, index, sign = 0;
 
+	while (s[i] != '\0')
+	{
+		if (s[i] >= '0' && s[i] <= '9')
+		{
+			index = i;
+			while (s[i] >= '0' && s[i] <= '9')
+			{
+				if (s[i - 1] == '-')
+					sign = 1;
+				count++;
+				i++;
+			}
+			break;
 		}
-	}*/
-}
+		i++;
+	}
+	count--;
+	p = count;
+	while (p > 0)
+	{
+		num *= 10;
+		p--;
+	}
+	while (count + 1)
+	{
+		digit = ((s[index] - 48) * num) + digit;
+		count--;
+		index++;
+		num /= 10;
+	}
+	if (sign == 1)
+		digit *= -1;
 	return (digit);
 }
