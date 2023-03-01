@@ -16,17 +16,19 @@ void rev_string(char *s)
 		len++;
 		i++;
 	}
+	i = len;
 	while (len > 1)
 	{
 		len--;
 		temp++;
 	}
-	while (temp != s)
+	len--;
+	while (len < i + 1 / 2)
 	{
 		t = *s;
 		*s = *temp;
 		*temp = t;
-		s++;
-		temp--;
+		len++;
+		i--;
 	}
 }
