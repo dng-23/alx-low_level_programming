@@ -9,7 +9,6 @@
 void print_buffer(char *b, int size)
 {
 	int i = 0, j = 0, n = 0, k = 0;
-	char *invalid = "\1\2\3\4\5\6\7";
 
 	while (b[i] != '\0' || i < size)
 	{
