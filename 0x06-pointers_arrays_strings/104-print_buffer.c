@@ -16,28 +16,15 @@ void print_buffer(char *b, int size)
 		printf("%p: ", b + i);
 		while (j < 10)
 		{
-			while (invalid[k])
-			{
-				if (b[j + i] ==  invalid[k])
-					printf("0");
-				k++;
-			}
-			k = 0;
-			printf("%hx", b[j + i]);
+			printf("%02x", b[j + i]);
 			if (j % 2 != 0)
 				printf(" ");
 			j++;
 		}
 		while (n < 10)
 		{
-			while (invalid[k])
-			{
-				if (b[i] ==  invalid[k] || b[i] == '\0')
-					printf(".");
-				k++;
-			}
-			k = 0;
-			printf("%c", b[i]);
+			if (b[i] >= 31 && b[i] <=126)
+				printf("%c", b[i]);
 			i++;
 			n++;
 			j = 0;
