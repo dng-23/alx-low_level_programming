@@ -12,7 +12,7 @@ void print_buffer(char *b, int size)
 
 	while (b[i] != '\0' || i < size)
 	{
-		printf("%08x: ", b + i);
+		printf("%08x: ", i);
 		while (j < 10)
 		{
 			printf("%02x", b[j + i]);
