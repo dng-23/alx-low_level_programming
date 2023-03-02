@@ -8,7 +8,7 @@
  */
 void print_buffer(char *b, int size)
 {
-	int i = 0, j = 0, n = 0, k = 0;
+	int i = 0, j = 0, n = 0;
 
 	while (b[i] != '\0' || i < size)
 	{
@@ -24,6 +24,8 @@ void print_buffer(char *b, int size)
 		{
 			if (b[i] >= 31 && b[i] <=126)
 				printf("%c", b[i]);
+			else
+				printf(".");
 			i++;
 			n++;
 			j = 0;
