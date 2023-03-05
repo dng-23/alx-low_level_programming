@@ -7,20 +7,19 @@
  */
 char *rot13(char *s)
 {
-	int i = 0, j = 0;
-	char first[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char second[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i = 0, j;
+	char alpha[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char key[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	while (s[i] != '\0')
 	{
-		while (first[j] != '\0')
+		for (j = 0; j < 52; j++)
 		{
-			if (s[i] == first[j])
+			if (s[i] == alpha[j])
 			{
-				s[i] = second[j];
+				s[i] = key[j];
 				break;
 			}
-			j++;
 		}
 		i++;
 	}
