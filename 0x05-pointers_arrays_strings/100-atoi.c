@@ -26,13 +26,14 @@ int _atoi(char *s)
 	{
 		if (s[i] >= '0' && s[i] <= '9')
 		{
+			if (sign == -1 && (digit > INT_MAX / 10 ||
+						(digit == INT_MAX / 10 && digit > -(INT_MIN % 10))))
+				return (INT_MIN);
 			digit = digit * 10 + (s[i] - '0');
 			i++;
 		}
 		else
 			break;
 	}
-	if (sign == -1 && (digit > INT_MAX / 10 || (digit == INT_MAX / 10 && digit > -(INT_MIN % 10))))
-		return (INT_MIN);
 	return (digit * sign);
 }
