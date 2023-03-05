@@ -32,5 +32,7 @@ int _atoi(char *s)
 		else
 			break;
 	}
+	if (sign == -1 && (digit > INT_MAX / 10 || (digit == INT_MAX / 10 && digit > -(INT_MIN % 10))))
+		return (INT_MIN);
 	return (digit * sign);
 }
