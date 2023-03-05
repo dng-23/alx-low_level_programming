@@ -8,14 +8,20 @@
  */
 int _atoi(char *s)
 {
-	int i = 0, digit = 0, sign = 1;
+	int i = 0, digit = 0, sign = 1, num_plus = 0, num_minus = 0;
 
 	while (s[i] != '\0' && (s[i] < '0' || s[i] > '9'))
 	{
 		if (s[i] == '-')
-			sign = -1;
+			num_minus++;
+		else if (s[i] == '+')
+			num_plus++;
 		i++;
 	}
+	if (num_plus > num_minus || (num_plus == num_minus))
+		sign = 1;
+	else
+		sign = -1;
 	while (s[i] != '\0')
 	{
 		if (s[i] >= '0' && s[i] <= '9')
