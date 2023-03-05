@@ -10,12 +10,12 @@ int _atoi(char *s)
 {
 	int i = 0, digit = 0, sign = 1;
 
-	if (str[i] == '-')
+	if (s[i] == '-')
 	{
 		sign = -1;
 		++i;
 	}
-	for (; str[i] >= '0' && str[i] <= '9'; ++i)
-		digit = digit * 10 + (str[i] - '0');
+	for (; s[i] >= '0' && s[i] <= '9'; ++i)
+		digit = digit * 10 + (s[i] - '0');
 	return (digit * sign);
 }
