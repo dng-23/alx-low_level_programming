@@ -1,6 +1,6 @@
 #include "main.h"
 #include <stdio.h>
-#include <math.h>
+#include <limits.h>
 /**
  * _atoi -  copies the string pointed to by src to dest
  * @s: pointer to string
