@@ -12,12 +12,12 @@ void print_number(int n)
 
 	if (n == INT_MIN)
 	{
-        	mul = 1000000000;
-        	_putchar('-');
-        	_putchar('2');
-        	n %= 1000000000;
-        	n *= -1;
-    	}
+		mul = 1000000000;
+		_putchar('-');
+		_putchar('2');
+		n %= 1000000000;
+		n *= -1;
+	}
 	else if (n < 0)
 	{
 		_putchar('-');
