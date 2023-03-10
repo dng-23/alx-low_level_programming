@@ -1,4 +1,3 @@
-#include "main.h"
 #include <stdio.h>
 
 /**
@@ -9,11 +8,6 @@
  */
 int main(int argc, char *argv[] __attribute__((unused)))
 {
-	while (argc > 0)
-	{
-		printf("%d",argc - 1);
-		argc--;
-	}
-	_putchar('\n');
+	printf("%d\n",argc - 1);
 	return (0);
 }
