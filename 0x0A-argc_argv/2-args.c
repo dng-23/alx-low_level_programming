@@ -1,4 +1,4 @@
-#include "main.h"
+#include <stdio.h>
 
 /**
  * main - prints all aruments it recieves
@@ -12,8 +12,7 @@ int main(int argc, char *argv[])
 
 	while (i < argc)
 	{
-		_putchar(argv[i]);
-		_putchar('\n');
+		printf("%s\n",argv[i]);
 		i++;
 	}
 	return (0);
