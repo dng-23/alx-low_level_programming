@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <string.h>
 /**
  * main - prints addition of numbers
  * @argc: number of arguments passed
@@ -10,6 +10,7 @@
 int main(int argc, char *argv[])
 {
 	int sum = 0, i = 1, num;
+	size_t j = 0;
 
 	if (argc < 2)
 		printf("0\n");
@@ -17,12 +18,17 @@ int main(int argc, char *argv[])
 	{
 		while (i < argc)
 		{
-			num = atoi(argv[i]);
-			if (num == 0 && argv[i][0] != '0')
+			while (j < strlen(argv[i]))
 			{
-				printf("Error\n");
-				return (1);
+				if (argv[i][j] < '0' || argv[i][j] > '9')
+				{
+					printf("Error\n");
+					return (1);
+				}
+				j++;
 			}
+			j = 0;
+			num = atoi(argv[i]);
 			sum += num;
 			i++;
 		}
