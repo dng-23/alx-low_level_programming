@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
-
+#include <stdio.h>
 /**
  * strtow - splits a string into words.
  * @str: string pointer
