@@ -13,7 +13,7 @@ char **strtow(char *str)
 	int j = 0, k = 0, l;
 	char **ptr;
 
-	if (*str == '\0' || str == NULL || (*str == ' ' && *(str + 1) == '\0')
+	if ((*str == '\0' || str == NULL) || (*str == ' ' && *(str + 1) == '\0')
 		return (NULL);
 	while (str[i] != '\0')
 	{
