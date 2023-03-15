@@ -9,7 +9,7 @@
  */
 char **strtow(char *str)
 {
-	size_t count = 0, i = 0;
+	size_t count = 0, i = 0, letter = 0;
 	int j = 0, k = 0, l;
 	char **ptr;
 
@@ -25,16 +25,14 @@ char **strtow(char *str)
 	ptr = malloc((count + 1) * sizeof(char *));
 	if (ptr == NULL)
 		return (NULL);
-	count = 0;
 	for (j = 0; str[j]; j++)
 	{
 		if (str[j] != ' ')
 		{
 			l = j;
 			for (; str[j] != ' '; j++)
-				count++;
-			j--;
-			ptr[k] = malloc(sizeof(char) * (count + 1));
+				letter++;
+			ptr[k] = malloc(sizeof(char) * (letter + 1));
 			if (ptr[k] == NULL)
 			{
 				for (; k >= 0; k--)
@@ -42,11 +40,11 @@ char **strtow(char *str)
 				free(ptr);
 				return (NULL);
 			}
-			for (i = 0; i < count; i++)
+			for (i = 0; i < letter; i++)
 				ptr[k][i] = str[l++];
 			ptr[k][i] = '\0';
 			k++;
-			count = 0;
+			letter = 0;
 		}
 	}
 	ptr[k] = NULL;
