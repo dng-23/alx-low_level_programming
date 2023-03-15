@@ -15,15 +15,12 @@ char **strtow(char *str)
 
 	if (*str == '\0' || str == NULL)
 		return (NULL);
-	while (str[i] != '\0')
-	{
+	for (i = 0; str[i] != '\0'; i++)
 		if (str[i] == ' ' && (str[i + 1] != ' '))
 			count++;
-		i++;
-	}
 	if (count == 0)
 		return (NULL);
-	if (str[0] != 0)
+	if (str[0] != ' ')
 		count++;
 	ptr = malloc((count + 1) * sizeof(char *));
 	if (ptr == NULL)
@@ -42,7 +39,6 @@ char **strtow(char *str)
 			{
 				for (; k >= 0; k--)
 					free(ptr[k]);
-
 				free(ptr);
 				return (NULL);
 			}
@@ -54,6 +50,5 @@ char **strtow(char *str)
 		}
 	}
 	ptr[k] = NULL;
-
 	return (ptr);
 }
