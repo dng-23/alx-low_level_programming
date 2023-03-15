@@ -17,12 +17,14 @@ char **strtow(char *str)
 		return (NULL);
 	while (str[i] != '\0')
 	{
-		if ((str[i] == ' ' && (str[i + 1] != ' ')) || (i = 0 && str[i] != ' '))
+		if (str[i] == ' ' && (str[i + 1] != ' '))
 		{
 			count++;
 		}
 		i++;
 	}
+	if (str[0] != 0)
+		count++;
 	ptr = malloc((count + 1) * sizeof(char *));
 	count = 0;
 	for (j = 0; str[j]; j++)
