@@ -13,7 +13,7 @@ char **strtow(char *str)
 	int j = 0, k = 0, l;
 	char **ptr;
 
-	if (*str == '\0' || str == NULL)
+	if (*str == '\0' || str == NULL || strlen(str) == 0)
 		return (NULL);
 	while (str[i] != '\0')
 	{
@@ -23,7 +23,7 @@ char **strtow(char *str)
 		}
 		i++;
 	}
-	ptr = malloc((count) * sizeof(char *));
+	ptr = malloc((count + 1) * sizeof(char *));
 	count = 0;
 	for (j = 0; str[j]; j++)
 	{
