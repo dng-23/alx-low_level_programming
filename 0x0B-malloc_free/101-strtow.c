@@ -9,34 +9,40 @@
  */
 char **strtow(char *str)
 {
-	size_t count = 0, i = 0, letter = 0;
-	int j = 0, k = 0, l;
+	int count = 0, k = 0, i, letter, j, l;
 	char **ptr;
 
 	if (*str == '\0' || str == NULL)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
-		if (str[i] == ' ' && (str[i + 1] != ' '))
+	{
+		while (str[i] == ' ')
+			i++;
+		if (str[i] != '\0')
+		{
 			count++;
-	if (count == 0)
-		return (NULL);
-	if (str[0] != ' ')
-		count++;
+			while (str[i] && (str[i] != ' '))
+				i++;
+		}
+	}
 	ptr = malloc((count + 1) * sizeof(char *));
 	if (ptr == NULL)
 		return (NULL);
-	for (j = 0; str[j]; j++)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[j] != ' ')
+		while (str[i] == ' ')
+			i++;
+		if (str[i] != '\0')
 		{
-			l = j;
-			for (; str[j] != ' '; j++)
-				letter++;
+			l = i;
+			while (str[i] && (str[i] != ' '))
+				i++;
+			letter = i - l;
 			ptr[k] = malloc(sizeof(char) * (letter + 1));
 			if (ptr[k] == NULL)
 			{
-				for (; k >= 0; k--)
-					free(ptr[k]);
+				for (j = 0; j < i; j++)
+					free(ptr[j]);
 				free(ptr);
 				return (NULL);
 			}
