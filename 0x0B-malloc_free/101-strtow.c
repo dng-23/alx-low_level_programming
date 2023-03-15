@@ -47,7 +47,7 @@ char **strtow(char *str)
 					free(ptr[k]);
 
 				free(ptr);
-				return (NULL)
+				return (NULL);
 			}
 			for (i = 0; i < count; i++)
 				ptr[k][i] = str[l++];
