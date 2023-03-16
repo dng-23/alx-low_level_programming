@@ -16,11 +16,13 @@ char **strtow(char *str)
 		return (NULL);
 	while (*p != '\0')
 	{
-		for (; *p == ' '; p++)
+		while (*p == ' ')
+			p++;
 		if (*p != '\0')
 		{
 			count++;
-			for (; *p != '\0' && *p != ' '; p++);
+			while (*p != '\0' && *p != ' ')
+				p++;
 		}
 	}
 	ptr = malloc((count + 1) * sizeof(char *));
@@ -28,11 +30,13 @@ char **strtow(char *str)
 		return (NULL);
 	for (p = str; *p != '\0'; i++)
 	{
-		for (; *p == ' '; p++)
+		while (*p == ' ')
+			p++;
 		if (*p != '\0')
 		{
 			word = p;
-			for (; *p != '\0' && *p != ' '; p++)
+			while (*p != '\0' && *p != ' ')
+				p++;
 			length = p - word;
 			ptr[i] = malloc((length + 1) * sizeof(char));
 			if (ptr[i] == NULL)
