@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
+
 /**
  * strtow - splits a string into words.
  * @str: string pointer
@@ -46,9 +46,9 @@ char **strtow(char *str)
 				free(ptr);
 				return (NULL);
 			}
-			for (i = 0; i < letter; i++)
-				ptr[k][i] = str[l++];
-			ptr[k][i] = '\0';
+			for (j = 0; j < letter; l++, j++)
+				ptr[k][j] = str[l];
+			ptr[k][letter] = '\0';
 			k++;
 			letter = 0;
 		}
