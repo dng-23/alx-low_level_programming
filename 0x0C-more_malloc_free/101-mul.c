@@ -16,13 +16,15 @@ char *cal_prod(char *, char *, int, char *, int, int);
 int main(int ac, char **av)
 {
 	char *prod, *greater = av[1], *smallest = av[2];
-	int i = 0, len1 = strlen(av[1]), len2 = strlen(av[2]), size;
+	int i = 0, len1, len2, size;
 
 	if (ac != 3 || check_valid(av[1]) == -1 || check_valid(av[2]) == -1)
 	{
 		printf("Error\n");
 		exit(98);
 	}
+	len1 = strlen(av[1]);
+	len2 = strlen(av[2]);
 	if (strlen(av[2]) > strlen(av[1]))
 	{
 		greater = av[2];
