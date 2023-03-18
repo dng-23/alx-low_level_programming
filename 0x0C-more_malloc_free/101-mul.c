@@ -77,7 +77,10 @@ char *mem_prod(int size)
 
 	ptr = malloc(size);
 	if (!ptr)
+	{
+		printf("Error\n");
 		exit(98);
+	}
 	for (i = 0; i < size; i++)
 		ptr[i] = '0';
 
