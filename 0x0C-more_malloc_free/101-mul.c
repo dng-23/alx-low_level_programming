@@ -77,7 +77,7 @@ char *mem_prod(int size)
 
 	ptr = malloc(size);
 	if (!ptr)
-		return (NULL);
+		exit(98);
 	for (i = 0; i < size; i++)
 		ptr[i] = '0';
 
@@ -106,7 +106,7 @@ char  *cal_prod(char *arr, char *num1, int len1, char *num2,
 		k = size - (len2 - i);
 		for (j = len1 - 1; j >= 0; j--)
 		{
-			digit1 = num1[j] -'0';
+			digit1 = num1[j] - '0';
 			sum = (digit1 * digit2) + carry + (arr[k] - '0');
 			carry = sum / 10;
 			arr[k] = (sum % 10) + '0';
