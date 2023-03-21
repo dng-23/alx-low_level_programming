@@ -13,8 +13,9 @@ void _strcpy(char *src, char *dest);
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	int i = 0, j = 0;
-	
+
 	dog_t *d = malloc(sizeof(dog_t));
+
 	if (!d)
 		return (NULL);
 	while (name[i])
@@ -39,10 +40,17 @@ dog_t *new_dog(char *name, float age, char *owner)
 
 	return (d);
 }
+
+/**
+ * _strcpy - copies string from src to dest
+ * @src: the src to be copied from
+ * @dest: the dest to be copied to
+ * Return: Nothing
+ */
 void _strcpy(char *src, char *dest)
 {
 	int i = 0;
-	
+
 	while (src[i])
 	{
 		dest[i] = src[i];
