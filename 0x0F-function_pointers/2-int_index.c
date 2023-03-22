@@ -5,13 +5,13 @@
  * @array: array
  * @size: size of array
  * @cmp: pointer to function to be used to compare values
- * Return: ndex of the first element for which the cmp function does not return 0 or -1
+ * Return: index of the first element for the cmp fun does not return 0 or -1
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
 	int i = 0, res;
 
-	if (size < 1)
+	if (size < 1 || cmp == NULL)
 		return (-1);
 
 	while (i < size)

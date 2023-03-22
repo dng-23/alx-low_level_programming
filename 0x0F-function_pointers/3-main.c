@@ -20,7 +20,8 @@ int main(int ac, char **av)
 	num1 = atoi(av[1]);
 	num2 = atoi(av[3]);
 	printf("num1= %d num2= %d\n", num1, num2);
-	if (*av[2] != '+' && *av[2] != '-' && *av[2] != '/' && *av[2] != '*'&& *av[2] != '%')
+	if (*av[2] != '+' && *av[2] != '-' && *av[2] != '/'
+			&& *av[2] != '*' && *av[2] != '%')
 	{
 		printf("Error\n");
 		exit(99);
