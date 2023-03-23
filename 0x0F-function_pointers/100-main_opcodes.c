@@ -25,7 +25,7 @@ int main(int ac, char **av)
 	}
 	m = (char *)main;
 	for (i = 0; i < num - 1; i++)
-		printf("%02hhx ",m[i]);
-	printf("%02hhx\n",m[i]);
+		printf("%02hhx ", m[i]);
+	printf("%02hhx\n", m[i]);
 	return (0);
 }
