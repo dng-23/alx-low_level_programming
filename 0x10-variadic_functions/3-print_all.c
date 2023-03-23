@@ -37,7 +37,7 @@ void print_s(va_list ap)
 	char *s = va_arg(ap, char *);
 
 	if (s == NULL)
-		printf("nil");
+		printf("(nil)");
 	else
 		printf("%s", s);
 }
@@ -76,7 +76,7 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (j < 4)
 		{
-			if (print_spec[j].op == format[i])
+			if (print_spec[j].spec == format[i])
 			{
 				print_spec[j].f(ap);
 				if (i != strlen(format) - 1)
