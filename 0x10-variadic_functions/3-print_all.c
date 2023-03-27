@@ -36,10 +36,7 @@ void print_s(va_list ap)
 {
 	char *s = va_arg(ap, char *);
 
-	if (s == NULL)
-		printf("(nil)");
-	else
-		printf("%s", s);
+	printf("%s", s);
 }
 
 /**
@@ -60,13 +57,8 @@ void print_f(va_list ap)
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0, j;
-	pr_f print_spec[] = {
-		{'c', print_c},
-		{'i', print_i},
-		{'f', print_f},
-		{'s', print_s},
-		{'\0', NULL},
-	};
+	char *spec = "cisf";
+	void (*ptr[])(va_list) = {print_c, print_i, print_s, print_f};
 	va_list ap;
 
 	va_start(ap, format);
@@ -76,9 +68,9 @@ void print_all(const char * const format, ...)
 		j = 0;
 		while (j < 4)
 		{
-			if (print_spec[j].spec == format[i])
+			if (spec[j] == format[i])
 			{
-				print_spec[j].f(ap);
+				ptr[j](ap);
 				if (i != strlen(format) - 1)
 					printf(", ");
 				break;
