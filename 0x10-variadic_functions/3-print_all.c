@@ -62,7 +62,7 @@ void print_f(va_list ap)
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0, j;
-	char *spec = "cisf", *sep = "";
+	char *spec = "cisf", *comma = "";
 	void (*ptr[])(va_list) = {print_c, print_i, print_s, print_f};
 	va_list ap;
 
@@ -77,7 +77,7 @@ void print_all(const char * const format, ...)
 			{
 				printf("%s", comma);
 				ptr[j](ap);
-				sep = ", "
+				comma = ", ";
 				break;
 			}
 			j++;
