@@ -36,6 +36,11 @@ void print_s(va_list ap)
 {
 	char *s = va_arg(ap, char *);
 
+	if (s == NULL)
+	{
+		printf("(nill)");
+		return;
+	}
 	printf("%s", s);
 }
 
@@ -57,22 +62,22 @@ void print_f(va_list ap)
 void print_all(const char * const format, ...)
 {
 	unsigned int i = 0, j;
-	char *spec = "cisf";
+	char *spec = "cisf", *sep = "";
 	void (*ptr[])(va_list) = {print_c, print_i, print_s, print_f};
 	va_list ap;
 
 	va_start(ap, format);
 
-	while (i < strlen(format))
+	while (format && format[i])
 	{
 		j = 0;
 		while (j < 4)
 		{
 			if (spec[j] == format[i])
 			{
+				printf("%s", comma);
 				ptr[j](ap);
-				if (i != strlen(format) - 1)
-					printf(", ");
+				sep = ", "
 				break;
 			}
 			j++;
