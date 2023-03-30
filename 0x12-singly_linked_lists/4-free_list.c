@@ -4,20 +4,18 @@
 
 /**
  * free_list - frees a list_t list
- * @h: linked list to free
+ * @head: linked list to free
  * Return: Nothing
  */
 void free_list(list_t *head)
 {
-	list_t *temp = head, *del;
+	list_t *del;
 
-	while (temp->next)
+	while (head)
 	{
-		del = temp;
-		temp = temp->next;
+		head = del;
+		head = head->next;
 		free(del->str);
 		free(del);
 	}
-	free(temp->str);
-	free(temp);
 }

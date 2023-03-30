@@ -7,14 +7,12 @@
  */
 size_t list_len(const list_t *h)
 {
-	const list_t *temp = h;
 	size_t num_nodes = 0;
 
-	while (temp->next)
+	while (h)
 	{
 		num_nodes++;
 		temp = h->next;
 	}
-	num_nodes++;
 	return (num_nodes);
 }

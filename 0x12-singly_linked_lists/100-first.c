@@ -1,13 +1,13 @@
 #include <stdio.h>
+#include "lists.h"
 
 /**
- * main - check the code
+ * before_main - a function to print before main
  *
- * Return: Always 0.
+ * Return: Nothing
  */
-int main(void)
+void before_main()
 {
     printf("You're beat! and yet, you must allow,\nI bore my house upon my back!\n");
-    return (0);
 }
 

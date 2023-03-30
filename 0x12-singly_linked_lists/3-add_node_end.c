@@ -8,7 +8,7 @@
  * @str: string
  * Return: the address of the new element, or NULL if it failed
  */
-list_t *add_node(list_t **head, const char *str)
+list_t *add_node_end(list_t **head, const char *str)
 {
 	list_t *temp1, *temp2 = *head;
 
@@ -27,5 +27,5 @@ list_t *add_node(list_t **head, const char *str)
 			temp2 = temp2->next;
 		temp2->next = temp1;
 	}
-	return (temp1);
+	return (*head);
 }
