@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 /**
- * get_nodeint_at_index - insert a new node at given index
+ * insert_nodeint_at_index - insert a new node at given index
  * @head: address of linked list to delete
  * @idx: the index of the node, starting at 0
  * @n: data of the new node
@@ -10,7 +10,7 @@
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *temp;
+	listint_t *temp, *temp2 = *head;
 	unsigned int i = 0;
 
 	temp = malloc(sizeof(listint_t));
@@ -18,12 +18,14 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 		return (NULL);
 	temp->n = n;
 
-	while (i != index && *head != NULL)
+	while (i != idx - 1 && temp2 != NULL)
 	{
-		*head = *head->next;
+		temp2 = temp2->next;
 		i++;
 	}
-	temp->next = *head;
-	*head = temp;
-	return (*head);
+	if (!temp2)
+		return (NULL);
+	temp->next = temp2->next;
+	temp2->next = temp;
+	return (temp);
 }
