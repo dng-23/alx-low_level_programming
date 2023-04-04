@@ -11,7 +11,7 @@ listint_t *delete_nodeint_at_index(listint_t **head, unsigned int index)
 {
 	listint_t *temp = *head, *temp2;
 	unsigned int i = 0;
-	
+
 	while (i != index && temp != NULL)
 	{
 		temp = temp->next;
