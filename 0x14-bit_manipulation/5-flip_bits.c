@@ -12,8 +12,8 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 
 	while (flip != 0)
 	{
-		count++;
+		num_flip++;
 		flip &= (flip - 1);
 	}
-	return (count);
+	return (num_flip);
 }
