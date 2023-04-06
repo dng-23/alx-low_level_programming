@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * set_bit - set the value of a bit at a given index.
+ * flip_bits - set the value of a bit at a given index.
  * @n: first number to check
  * @m: second number to check
  * Return: number of bits needed to flip

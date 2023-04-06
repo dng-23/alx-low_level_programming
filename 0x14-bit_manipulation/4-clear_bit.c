@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * set_bit - set the value of a bit at a given index.
+ * clear_bit - set the value of a bit at a given index.
  * @n: address of number
  * @index: the index, starting from 0 of the bit you want to get
  * Return: 1 if it worked, or -1 if an error occurred
