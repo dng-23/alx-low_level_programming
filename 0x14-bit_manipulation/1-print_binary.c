@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+
 /**
  * print_binary - prints the binary representation of a number
  * @n: number
@@ -7,7 +7,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int mask = 1, i = 0, shift = 0, num = n;
+	unsigned long int mask = 1, i = 0, shift = 0, num = n;
 
 	while (num > 1)
 	{
