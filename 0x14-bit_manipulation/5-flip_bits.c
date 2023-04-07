@@ -8,7 +8,7 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int num_flip = 0, flip = n ^ m;
+	unsigned long int num_flip = 0, flip = n ^ m;
 
 	while (flip != 0)
 	{
