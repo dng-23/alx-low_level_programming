@@ -46,6 +46,8 @@ int main(int argc, char **argv)
  * @fd_value: value of file descrepter
  * @type: type of error with int value
  * @filename: name of the file
+ * @fd1: file descriptor
+ * @fd2: file descriptor
  * Return: nothing
  */
 void handle_error(int fd_value, int type, char *filename, int fd1, int fd2)
