@@ -52,7 +52,7 @@ int main(int argc, char **argv)
  */
 void handle_error(int fd_value, int type, char *filename, int fd1, int fd2)
 {
-	char *msg[] = {"Error: Can't read from file", "Error: Can't write to ",
+	char *msg[] = {"Error: Can't read from file", "Error: Can't write to",
 	     "Error: Can't close fd"};
 	int ex[3] = {98, 99, 100};
 
