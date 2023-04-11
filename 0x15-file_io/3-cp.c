@@ -23,12 +23,10 @@ int main(int argc, char **argv)
 	if (!argv[1])
 		handle_error(-1, 0, argv[1], -1, -1);
 
-	fd_file1 = open(argv[1], O_RDONLY);
-	printf("fd= %d...\n", fd_file1);
+	fd_file1 = open(argv[1], O_RDWR);
 	handle_error(fd_file1, 0, argv[1], fd_file1, -1);
 
 	fd_file2 = creat(argv[2], S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP | S_IROTH);
-	printf("fd2= %d.../n", fd_file2);
 	handle_error(fd_file2, 1, argv[2], fd_file1, fd_file2);
 	while (read_size != 0)
 	{
