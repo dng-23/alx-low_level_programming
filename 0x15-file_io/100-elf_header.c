@@ -34,20 +34,20 @@ int main(int argc, char **argv)
 	if (elf_header.e_ident[EI_DATA] == ELFDATA2MSB)
 		data = "2's complement, big endian";
 	printf("ELF Header: \n");
-	printf("Magic:   ");
+	printf("  Magic:   ");
 	while (i != EI_NIDENT)
 	{
 		printf("%02x ", elf_header.e_ident[i]);
 		i++;
 	}
 	printf("\n");
-	printf("Class:                             %s\n", class);
-	printf("Data:                              %s\n", data);
-	printf("Version:                           %s\n", version);
+	printf("  Class:                             %s\n", class);
+	printf("  Data:                              %s\n", data);
+	printf("  Version:                           %s\n", version);
 	osabi_info(elf_header);
-	printf("ABI Version:                       %d\n", abi);
+	printf("  ABI Version:                       %d\n", abi);
 	type_info(elf_header);
-	printf("Entry point address:               %ld\n", elf_header.e_entry);
+	printf("  Entry point address:               %ld\n", elf_header.e_entry);
 	return (0);
 }
 
@@ -58,7 +58,7 @@ int main(int argc, char **argv)
  */
 void osabi_info(Elf64_Ehdr elf_header)
 {
-	printf("OS/ABI:                            ");
+	printf("  OS/ABI:                            ");
 	switch (elf_header.e_ident[EI_OSABI])
 	{
 		case ELFOSABI_HPUX:
