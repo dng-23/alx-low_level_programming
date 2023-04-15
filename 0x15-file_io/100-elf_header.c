@@ -51,7 +51,8 @@ int main(int argc, char **argv)
 	osabi_info(elf_header);
 	printf("  ABI Version:                       %d\n", abi);
 	type_info(elf_header);
-	printf("  Entry point address:               0x%x\n", (int)elf_header.e_entry);
+	printf("  Entry point address:               0x%x\n",
+			(int)elf_header.e_entry);
 	return (0);
 }
 
