@@ -33,11 +33,14 @@ int main(int argc, char **argv)
 		class = "ELF32";
 	if (elf_header.e_ident[EI_DATA] == ELFDATA2MSB)
 		data = "2's complement, big endian";
-	printf("ELF Header: \n");
+	printf("ELF Header:\n");
 	printf("  Magic:   ");
 	while (i != EI_NIDENT)
 	{
-		printf("%02x ", elf_header.e_ident[i]);
+		if (i == EI_NIDENT - 1)
+			printf("%02x", elf_header.e_ident[i]);
+		else
+			printf("%02x ", elf_header.e_ident[i]);
 		i++;
 	}
 	printf("\n");
