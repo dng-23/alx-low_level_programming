@@ -106,6 +106,8 @@ void osabi_info(Elf64_Ehdr elf_header)
  */
 void type_info(Elf64_Ehdr elf_header)
 {
+	if (elf_header.e_ident[EI_DATA] == ELFDATA2MSB)
+		elf_header.e_type >>= 8;
 	printf("  Type:                              ");
 	switch (elf_header.e_type)
 	{
