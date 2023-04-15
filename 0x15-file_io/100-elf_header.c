@@ -91,6 +91,9 @@ void osabi_info(Elf64_Ehdr elf_header)
 		case ELFOSABI_STANDALONE:
 			printf("Standalone App\n");
 			break;
+		case ELFOSABI_NONE:
+			printf("UNIX - System V\n");
+			break;
 		default:
 			printf("<unknown: %x>\n", elf_header.e_ident[EI_OSABI]);
 	}
