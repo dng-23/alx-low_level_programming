@@ -47,7 +47,8 @@ int main(int argc, char **argv)
 	osabi_info(elf_header);
 	printf("  ABI Version:                       %d\n", abi);
 	type_info(elf_header);
-	printf("  Entry point address:               %ld\n", elf_header.e_entry);
+	printf("  Entry point address:               %#x\n",
+			(unsigned int)elf_header.e_entry);
 	return (0);
 }
 
@@ -100,7 +101,7 @@ void osabi_info(Elf64_Ehdr elf_header)
  */
 void type_info(Elf64_Ehdr elf_header)
 {
-	printf("Type:                              ");
+	printf("  Type:                              ");
 	switch (elf_header.e_type)
 	{
 		case ET_NONE:
