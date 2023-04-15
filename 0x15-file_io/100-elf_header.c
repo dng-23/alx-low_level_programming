@@ -32,6 +32,8 @@ int main(int argc, char **argv)
 		class = "ELF32";
 	if (elf_header.e_ident[EI_DATA] == ELFDATA2MSB)
 		data = "2's complement, big endian";
+	if (elf_header.e_ident[EI_VERSION] != 1)
+		version = "1";
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
 	while (i != EI_NIDENT)
@@ -49,8 +51,7 @@ int main(int argc, char **argv)
 	osabi_info(elf_header);
 	printf("  ABI Version:                       %d\n", abi);
 	type_info(elf_header);
-	printf("  Entry point address:               %#x\n",
-			(unsigned int)elf_header.e_entry);
+	printf("  Entry point address:               0x%x\n", (int)elf_header.e_entry);
 	return (0);
 }
 
