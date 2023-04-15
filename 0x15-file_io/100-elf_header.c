@@ -33,7 +33,7 @@ int main(int argc, char **argv)
 	if (elf_header.e_ident[EI_DATA] == ELFDATA2MSB)
 		data = "2's complement, big endian";
 	if (elf_header.e_ident[EI_VERSION] != 1)
-		version = "1";
+		version = "";
 	printf("ELF Header:\n");
 	printf("  Magic:   ");
 	while (i != EI_NIDENT)
