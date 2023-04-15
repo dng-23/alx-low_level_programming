@@ -4,7 +4,7 @@
 
 void osabi_info(Elf64_Ehdr);
 void type_info(Elf64_Ehdr elf_header);
-
+void check_elf(Elf64_Ehdr elf_header);
 /**
  * main - copies the content of a file to another file
  * @argc: number of arguments
@@ -13,7 +13,7 @@ void type_info(Elf64_Ehdr elf_header);
  */
 int main(int argc, char **argv)
 {
-	int i = 0, read_size, fd, abi;
+	int i = 0, fd, abi;
 	char *class = "ELF64";
 	char *data = "2's complement, little endian";
 	char *version = "1 (current)";
@@ -25,10 +25,9 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 	fd = open(argv[1], O_RDONLY);
-	read_size = read(fd, &elf_header, sizeof(Elf64_Ehdr));
+	read(fd, &elf_header, sizeof(Elf64_Ehdr));
+	check_elf(elf_header);
 	abi = elf_header.e_ident[EI_ABIVERSION];
-	if (read_size <= 0)
-		printf("Eroor: \n");
 	if (elf_header.e_ident[EI_CLASS] == ELFCLASS32)
 		class = "ELF32";
 	if (elf_header.e_ident[EI_DATA] == ELFDATA2MSB)
@@ -124,5 +123,24 @@ void type_info(Elf64_Ehdr elf_header)
 			break;
 		default:
 			printf("<unknown: %x>\n", elf_header.e_type);
+	}
+}
+
+/**
+ * check_elf - Checks if a file is an ELF file.
+ * @elf_header: struct of ELF header
+ * Return: Nothing
+ */
+void check_elf(Elf64_Ehdr elf_header)
+{
+	int i;
+
+	for (i = 0; i < 4; i++)
+	{
+		if (elf_header.e_ident[i] != 127 &&
+		    elf_header.e_ident[i] != 'E' &&
+		    elf_header.e_ident[i] != 'L' &&
+		    elf_header.e_ident[i] != 'F')
+			exit(98);
 	}
 }
